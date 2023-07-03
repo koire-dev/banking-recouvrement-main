@@ -29,7 +29,6 @@ public class Folder implements Serializable {
     private String name;
     private LocalDate dateCreation = LocalDate.now();
     private boolean actif = true;
-    //@Column(nullable = false)
     private LocalDate datePromesse;
     @Column(nullable = false)
     private Double montant;
@@ -40,18 +39,12 @@ public class Folder implements Serializable {
     private Long delai;
 
     @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-    //@JoinColumn(name = "cycleId", referencedColumnName = "idCycle")
-    //@JsonIgnoreProperties("folder")
     private Cycle cycle;
 
     @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-    //@JoinColumn(name = "userId", referencedColumnName = "idUser")
-    //@JsonIgnoreProperties("folder")
     private User user;
 
     @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-    //@JoinColumn(name = "clientId", referencedColumnName = "idClient")
-    //@JsonIgnoreProperties("folder")
     private Client client;
 
     //Methode pour dire si oui ou non la date d'expiration d'une promesse est atteinte
@@ -62,4 +55,5 @@ public class Folder implements Serializable {
         }
         return true;
     }
+
 }
